@@ -1,0 +1,92 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // 0. Global Safety Net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Primitive Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    // Entity Validations
+    function isValidProfile(data) {
+      return data.name is string && data.name.size() > 0 && data.name.size() <= 100 &&
+             data.gender in ['boy', 'girl'] &&
+             data.weight is number && data.weight > 0 && data.weight < 500 &&
+             data.age is number && data.age > 0 && data.age < 150 &&
+             data.dailyGoal is number && data.dailyGoal > 0 &&
+             data.onboarded is bool &&
+             data.keys().hasAll(['name', 'gender', 'weight', 'age', 'dailyGoal', 'onboarded']) &&
+             data.keys().size() <= 8; // Allowing optional fields like updatedAt
+    }
+
+    function isValidLog(data) {
+      return data.amount is number && data.amount > 0 && data.amount <= 5000 &&
+             data.timestamp is number &&
+             data.keys().hasAll(['amount', 'timestamp']) &&
+             data.keys().size() == 2;
+    }
+
+    function isValidTask(data) {
+      return data.id is number &&
+             data.day is number && data.day >= 1 && data.day <= 30 &&
+             data.task is string && data.task.size() <= 200 &&
+             data.completed is bool &&
+             data.keys().hasAll(['id', 'day', 'task', 'completed']) &&
+             data.keys().size() <= 5;
+    }
+
+    function isValidFeedback(data) {
+      return data.name is string && data.name.size() <= 100 &&
+             data.comment is string && data.comment.size() <= 1000 &&
+             data.rating is number && data.rating >= 1 && data.rating <= 5 &&
+             data.userId == request.auth.uid &&
+             data.timestamp is number &&
+             data.keys().hasAll(['name', 'comment', 'rating', 'userId', 'timestamp']) &&
+             data.keys().size() == 5;
+    }
+
+    // Collection Matchers
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidProfile(incoming());
+      allow update: if isOwner(userId) && isValidProfile(incoming()) &&
+                    incoming().diff(existing()).affectedKeys().hasOnly(['name', 'gender', 'weight', 'age', 'dailyGoal', 'onboarded', 'updatedAt']);
+      
+      match /logs/{logId} {
+        allow list, get: if isOwner(userId);
+        allow create: if isOwner(userId) && isValidLog(incoming());
+        allow delete: if isOwner(userId);
+      }
+
+      match /tasks/{taskId} {
+        allow list, get: if isOwner(userId);
+        allow create, update: if isOwner(userId) && isValidTask(incoming());
+      }
+    }
+
+    match /feedback/{feedbackId} {
+      allow create: if isSignedIn() && isValidFeedback(incoming());
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+    }
+  }
+}

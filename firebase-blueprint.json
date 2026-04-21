@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "User Profile",
+      "description": "Biological data and hydration settings for a user.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "gender": { "type": "string", "enum": ["boy", "girl"] },
+        "weight": { "type": "number" },
+        "age": { "type": "number" },
+        "dailyGoal": { "type": "number" },
+        "onboarded": { "type": "boolean" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "gender", "weight", "age", "dailyGoal", "onboarded"]
+    },
+    "hydrationLog": {
+      "title": "Hydration Log",
+      "description": "Record of water intake.",
+      "type": "object",
+      "properties": {
+        "amount": { "type": "number" },
+        "timestamp": { "type": "number" }
+      },
+      "required": ["amount", "timestamp"]
+    },
+    "dailyTask": {
+      "title": "Daily Task Status",
+      "description": "User completion status for the 30-day challenge roadmap.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "number" },
+        "day": { "type": "number" },
+        "task": { "type": "string" },
+        "completed": { "type": "boolean" },
+        "updatedAt": { "type": "number" }
+      },
+      "required": ["id", "day", "task", "completed"]
+    },
+    "feedback": {
+      "title": "Feedback Record",
+      "description": "Feedback submitted by users.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "comment": { "type": "string" },
+        "rating": { "type": "number" },
+        "userId": { "type": "string" },
+        "timestamp": { "type": "number" }
+      },
+      "required": ["name", "comment", "rating", "timestamp", "userId"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "userProfile",
+      "description": "Private user profiles."
+    },
+    "/users/{userId}/logs/{logId}": {
+      "schema": "hydrationLog",
+      "description": "Private water intake logs."
+    },
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": "dailyTask",
+      "description": "Private task completion states."
+    },
+    "/feedback/{feedbackId}": {
+      "schema": "feedback",
+      "description": "Global feedback collection (write-only for users, no read-all for users)."
+    }
+  }
+}
