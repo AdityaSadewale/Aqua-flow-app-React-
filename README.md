@@ -80,6 +80,7 @@ npm start
 
 ---
 
+
 ## 🤝 Contributing
 
 Contributions are welcome!
@@ -93,6 +94,5 @@ Contributions are welcome!
 ---
 
 ## 👨‍💻 Author
-
 **Aditya Sadewale**
 GitHub: https://github.com/AdityaSadewale
