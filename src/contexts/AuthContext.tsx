@@ -13,6 +13,7 @@ interface AuthContextType {
   signOut: () => void;
 }
 
+
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
