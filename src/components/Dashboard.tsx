@@ -40,9 +40,7 @@ export function Dashboard({ intake, goal, onAddLog, tasks, onToggleTask, exportD
     const date = new Date();
     date.setDate(date.getDate() - (29 - i));
     const dateStr = date.setHours(0, 0, 0, 0);
-    
-    // Check if user reached goal on that day (this is simplified as we don't have daily goals stored historically)
-    // For now, we check if there are logs for that day
+
     // Wait, useHydration returns all logs.
     return {
       day: i + 1,
