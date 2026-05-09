@@ -6,6 +6,7 @@ import { UserProfile, DailyTask } from '../types';
 import { HydrationCompanion } from './HydrationCompanion';
 import { HydroOracle } from './HydroOracle';
 
+
 interface DashboardProps {
   intake: number;
   goal: number;
@@ -20,6 +21,7 @@ interface DashboardProps {
   badges: string[];
   lastLogTime: number;
 }
+
 
 export function Dashboard({ intake, goal, onAddLog, tasks, onToggleTask, exportData, currentDay, streak, level, xp, badges, lastLogTime }: DashboardProps) {
   const percentage = goal > 0 ? Math.min(Math.round((intake / goal) * 100), 100) : 0;
