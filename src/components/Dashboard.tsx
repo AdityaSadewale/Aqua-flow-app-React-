@@ -37,7 +37,7 @@ export function Dashboard({ intake, goal, onAddLog, tasks, onToggleTask, exportD
 
   const grade = getHydrationGrade(percentage);
 
-  // Calculate past 30 days progress for the matrix
+  // Calculate past 30 days progress
   const matrixData = Array.from({ length: 30 }).map((_, i) => {
     const date = new Date();
     date.setDate(date.getDate() - (29 - i));
