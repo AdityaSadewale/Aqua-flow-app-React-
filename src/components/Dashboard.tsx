@@ -288,6 +288,7 @@ export function Dashboard({ intake, goal, onAddLog, tasks, onToggleTask, exportD
                  ))}
               </div>
            </div>
+          
 
            {/* Progress Matrix */}
            <div className="glass rounded-[2.5rem] p-8 space-y-6">
