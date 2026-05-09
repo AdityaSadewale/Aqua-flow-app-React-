@@ -52,7 +52,7 @@ export function Dashboard({ intake, goal, onAddLog, tasks, onToggleTask, exportD
     };
   });
 
-  // Play funny sounds
+  // Play funny sounds for fun 
   const playSlurp = () => {
     const audios = [
       'https://assets.mixkit.co/active_storage/sfx/2402/2402-preview.mp3', // Bubble
