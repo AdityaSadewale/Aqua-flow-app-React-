@@ -59,6 +59,7 @@ export function HydrationCompanion({ percentage, lastLogTime }: CompanionProps) 
     ]
   };
 
+  
   const currentMessage = messages[mood][Math.floor((Date.now() / 10000) % 4)];
 
   const getEmoji = () => {
