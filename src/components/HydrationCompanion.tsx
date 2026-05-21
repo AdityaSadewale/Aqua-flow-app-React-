@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
-
 interface CompanionProps {
   percentage: number;
   lastLogTime: number;
