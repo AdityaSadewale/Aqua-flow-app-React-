@@ -130,6 +130,7 @@ export function HydrationCompanion({ percentage, lastLogTime }: CompanionProps) 
            <div className={`mt-2 w-8 h-2 rounded-full bg-black/20 ${mood === 'thirsty' ? 'h-4' : ''}`} />
         </div>
 
+        
         {/* Floating Bubbles if Happy */}
         {mood === 'happy' && (
           <motion.div 
