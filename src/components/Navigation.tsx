@@ -90,6 +90,7 @@ export function TopNav() {
           <p className="text-[10px] text-white/50 font-bold uppercase tracking-widest">Welcome back,</p>
           <p className="text-sm font-semibold text-white leading-none">{user?.displayName || 'User'}</p>
         </div>
+        
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 rounded-full bg-blue-500/20 border border-white/20 flex items-center justify-center">
             <span className="text-blue-400 font-bold">
