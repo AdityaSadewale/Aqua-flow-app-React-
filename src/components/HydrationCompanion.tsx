@@ -71,7 +71,6 @@ export function HydrationCompanion({ percentage, lastLogTime }: CompanionProps) 
     }
   };
 
-  
   return (
     <motion.div 
       initial={{ scale: 0, opacity: 0 }}
