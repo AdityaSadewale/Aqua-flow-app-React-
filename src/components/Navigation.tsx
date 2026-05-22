@@ -9,6 +9,7 @@ interface NavigationProps {
   onSectionChange: (section: string) => void;
 }
 
+
 export function Navigation({ activeSection, onSectionChange }: NavigationProps) {
   const items = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
