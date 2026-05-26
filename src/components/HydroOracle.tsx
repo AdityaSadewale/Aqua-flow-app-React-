@@ -29,6 +29,7 @@ export function HydroOracle() {
     "Water is the best debugger for your morning brain."
   ];
 
+  
   const getNewFortune = () => {
     setIsSpinning(true);
     setFortune(null);
