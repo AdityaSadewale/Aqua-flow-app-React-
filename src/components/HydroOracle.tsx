@@ -7,6 +7,7 @@ export function HydroOracle() {
   const [fortune, setFortune] = useState<string | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
 
+  
   const fortunes = [
     "Your future is clear... like distilled water.",
     "A tall glass of water is in your immediate future. Drink it.",
