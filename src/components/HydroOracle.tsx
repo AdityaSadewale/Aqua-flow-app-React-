@@ -6,7 +6,6 @@ import { Sparkles, MessageSquare, Zap } from 'lucide-react';
 export function HydroOracle() {
   const [fortune, setFortune] = useState<string | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
-
   
   const fortunes = [
     "Your future is clear... like distilled water.",
