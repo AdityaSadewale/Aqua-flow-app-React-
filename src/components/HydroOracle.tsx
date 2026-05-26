@@ -68,6 +68,7 @@ export function HydroOracle() {
             <div className={`absolute inset-0 bg-indigo-500/20 rounded-full blur-2xl transition-opacity duration-1000 ${isSpinning ? 'opacity-100' : 'opacity-0'}`} />
         </div>
 
+        
         <AnimatePresence mode="wait">
           {fortune ? (
             <motion.div
@@ -87,6 +88,7 @@ export function HydroOracle() {
           )}
         </AnimatePresence>
 
+        
         <button 
           onClick={getNewFortune}
           disabled={isSpinning}
