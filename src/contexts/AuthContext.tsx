@@ -1,12 +1,10 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
-
 interface SimpleUser {
   uid: string;
   displayName?: string;
   email?: string;
 }
-
 
 interface AuthContextType {
   user: SimpleUser | null;
