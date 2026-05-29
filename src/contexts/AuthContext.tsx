@@ -6,6 +6,7 @@ interface SimpleUser {
   email?: string;
 }
 
+
 interface AuthContextType {
   user: SimpleUser | null;
   loading: boolean;
