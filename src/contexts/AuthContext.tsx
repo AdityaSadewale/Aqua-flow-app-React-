@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
+
 interface SimpleUser {
   uid: string;
   displayName?: string;
