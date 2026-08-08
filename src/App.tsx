@@ -9,6 +9,7 @@ import { useHydration } from './hooks/useHydration';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { Auth } from './components/Auth';
 
+
 function AquaFlowApp() {
   const { user } = useAuth();
   const { 
