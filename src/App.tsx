@@ -27,6 +27,7 @@ function AquaFlowApp() {
     loading: hydrationLoading
   } = useHydration(user?.uid);
 
+  
   const [activeSection, setActiveSection] = useState('dashboard');
   const [showOnboarding, setShowOnboarding] = useState(false);
 
