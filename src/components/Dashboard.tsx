@@ -123,6 +123,7 @@ export function Dashboard({ intake, goal, onAddLog, tasks, onToggleTask, exportD
         )}
       </AnimatePresence>
 
+      
       <HydrationCompanion percentage={percentage} lastLogTime={lastLogTime} />
 
       {/* Daily Progress Hero */}
