@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Fingerprint, Lock, LogIn, UserPlus } from 'lucide-react';
 import { useAuth } from '../contexts/AuthContext';
 
+
 export function Auth() {
   const { signIn } = useAuth();
   const [isLogin, setIsLogin] = useState(true);
