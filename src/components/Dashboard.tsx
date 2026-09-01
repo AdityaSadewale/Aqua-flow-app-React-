@@ -7,7 +7,6 @@ import { HydrationCompanion } from './HydrationCompanion';
 import { HydroOracle } from './HydroOracle';
 
 
-
 interface DashboardProps {
   intake: number;
   goal: number;
