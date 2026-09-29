@@ -12,6 +12,7 @@ export function Benefits() {
       tag: 'RADIANCE'
     },
     { 
+      
       title: 'Infinite Energy', 
       desc: 'Fight fatigue and boost metabolism with consistent fluid intake.', 
       icon: Zap, 
