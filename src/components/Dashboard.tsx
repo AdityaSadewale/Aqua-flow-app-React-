@@ -23,6 +23,7 @@ interface DashboardProps {
 }
 
 
+
 export function Dashboard({ intake, goal, onAddLog, tasks, onToggleTask, exportData, currentDay, streak, level, xp, badges, lastLogTime }: DashboardProps) {
   const percentage = goal > 0 ? Math.min(Math.round((intake / goal) * 100), 100) : 0;
   const [isCelebrated, setIsCelebrated] = useState(false);
