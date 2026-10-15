@@ -5,7 +5,6 @@ interface CompanionProps {
   percentage: number;
   lastLogTime: number;
 }
-
 export function HydrationCompanion({ percentage, lastLogTime }: CompanionProps) {
   const getTimeSinceLastLog = () => {
     const diff = Date.now() - lastLogTime;
