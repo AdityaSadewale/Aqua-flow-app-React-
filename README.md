@@ -8,6 +8,7 @@ Aqua Flow is a modern React-based web application designed to provide an intuiti
 * 🔄 Component-based architecture
 * ⚡ Fast and optimized performance
 * 📱 Mobile-friendly design
+  
 
 ---
 ## 🛠️ Tech Stack
