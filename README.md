@@ -74,8 +74,6 @@ npm start
 * 🎯 Performance improvements
 
 ---
-
-
 ## 🤝 Contributing
 
 Contributions are welcome!
