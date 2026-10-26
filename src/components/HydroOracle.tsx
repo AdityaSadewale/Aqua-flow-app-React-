@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Sparkles, MessageSquare, Zap } from 'lucide-react';
 
+
 export function HydroOracle() {
   const [fortune, setFortune] = useState<string | null>(null);
   const [isSpinning, setIsSpinning] = useState(false);
