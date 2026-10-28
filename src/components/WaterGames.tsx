@@ -2,11 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'motion/react';
 import { Play, RotateCcw, Trophy, User } from 'lucide-react';
 
-
 interface WaterGameProps {
   onEarnXP?: (xp: number) => void;
 }
-
 export function WaterGame({ onEarnXP }: WaterGameProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
