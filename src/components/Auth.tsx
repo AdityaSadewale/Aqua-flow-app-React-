@@ -26,6 +26,7 @@ export function Auth() {
       return;
     }
 
+    
     // Simulate network delay
     setTimeout(() => {
       signIn(id, name);
